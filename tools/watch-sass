@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while true; do
+    inotifywait ./talkie.scss
+    sass talkie.scss > talkie.css
+done
