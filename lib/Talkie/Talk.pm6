@@ -26,14 +26,14 @@ class Talk {
 
     method add-comment(:$msg, :$user --> Promise) {
         my $id = $!next-comment-id++;
+        debug "adding comment $id : $msg";
         my $new = %( :$msg, :$id, :$user, :html( md-to-html($msg) ), :timestamp(now) );
         %!comments-by-id{ $id } = $new;
         start $!latest-comments.emit: $new;
     }
 
     method latest-comments(:$count = 10 --> Supply) {
-        my $got = %!comments-by-id.values.sort(-> $a,$b { $a<id> <=> $b<id> });
-        my @latest-existing = %!comments-by-id.values.sort(-*.<id>).head($count);
+        my @latest-existing = %!comments-by-id.values.sort({ .<id> }).tail($count);
         supply {
            whenever $!latest-comments {
               .emit
