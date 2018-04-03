@@ -1,0 +1,6 @@
+.precomp
+node_modules
+.sass-cache
+talkie.conf
+data
+bundle.js

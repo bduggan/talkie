@@ -1,0 +1,30 @@
+{
+  "name": "talkie",
+  "version": "1.0.0",
+  "description": "Talkie: promptworks talks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-github-login": "^1.0.3",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "redux-websocket-action": "^1.0.5",
+    "webpack": "^3.11.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
+  }
+}

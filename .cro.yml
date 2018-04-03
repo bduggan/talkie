@@ -1,0 +1,15 @@
+---
+name: talkie
+cro: 1
+id: talkie
+env:  []
+links:  []
+entrypoint: service.p6
+endpoints: 
+  - 
+    port-env: TALKIE_PORT
+    name: HTTP
+    protocol: http
+    host-env: TALKIE_HOST
+    id: http
+...

@@ -1,0 +1,35 @@
+{
+  "name": "talkie",
+  "source-url": "http://github.com/promptworks/talkie",
+  "perl": "6.*",
+  "resources": [
+    
+  ],
+  "build-depends": [
+    
+  ],
+  "auth": "github:bduggan",
+  "depends": [
+    "Cro::HTTP",
+    "Cro::WebSocket",
+    "OO::Monitors",
+    "JSON::Fast",
+    "Log::Async"
+  ],
+  "tags": [
+    ""
+  ],
+  "license": "MIT",
+  "test-depends": [
+    
+  ],
+  "provides": {
+    "Routes.pm6": "lib/Routes.pm6"
+  },
+  "version": "0.0.1",
+  "meta-version": "0",
+  "authors": [
+    ""
+  ],
+  "description": "Keep track of talks."
+}

@@ -1,0 +1,165 @@
+/*
+ * https://www.w3schools.com/cSS/css_rwd_mediaqueries.asp
+ * https://www.w3schools.com/cSS/css_rwd_grid.asp
+ * http://www.colourlovers.com/palette/4556802/Beauty2
+ */
+
+@import "colors";
+
+$page-bg: lighten($color1,80%);
+$header: $color2;
+$menu: $color3;
+$comments: $color1;
+$menu-hover: darken($menu,10%);
+$menu-light: lighten($color3,30%);
+$shadow: rgba(0,0,0,0.5);
+
+.flex-container {
+    display: flex;
+}
+.flex-container > div {
+    margin:10px;
+    padding:5px;
+}
+
+a.logo {
+    text-decoration:none;
+    color:white;
+    font-size: +1;
+}
+
+* {
+    box-sizing: border-box;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.text-right {
+    text-align: right;
+}
+div.talkie-block {
+    background-color: $color5;
+    color: lighten($color5,80%);
+    border-radius: 5px;
+    box-shadow: 2px 4px 10px 2px $shadow;
+    margin-top:5px;
+    padding:10px;
+}
+div.talkie-wrapper {
+    flex-grow: 8;
+}
+row.talkie-header div {
+    padding:10px;
+    background-color: darken($color5,10%);
+    border-radius: 5px;
+    color:  lighten($color5,80%);
+}
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+body {
+    background-color: $page-bg;
+}
+.header {
+    background-color: $header;
+    color: #ffffff;
+    padding: 15px;
+}
+div.login {
+    float:right;
+}
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 2;
+}
+.menu li {
+    padding: 8px;
+    margin-bottom: 7px;
+    background-color: $menu;
+    color: #ffffff;
+    box-shadow: 0 1px 3px $shadow, 0 1px 2px $shadow;
+}
+.menu li:hover {
+    background-color: $menu-hover;
+}
+.speaker {
+    color: $menu-light;
+}
+
+.menu li.btn {
+    background-color: $color2;
+    color: lighten($color2,80%);
+}
+.menu li.btn:hover {
+    background-color: darken($color2,20%);
+    color: lighten($color2,80%);
+}
+div.mini-header {
+    font-size: 90%;
+    border-bottom:1px solid darken($color5,10%);
+    margin-bottom:10px;
+    padding-bottom:10px;
+    text-align:right;
+}
+
+li.selected {
+    background-color:darken($menu-hover,10%);
+}
+
+.col-1 { flex-grow: 1 }
+.col-2 { flex-grow: 2 }
+.col-3 { flex-grow: 3 }
+.col-4 { flex-grow: 4 }
+.col-5 { flex-grow: 5 }
+.col-6 { flex-grow: 6 }
+.col-7 { flex-grow: 7 }
+.col-8 { flex-grow: 8 }
+.col-9 { flex-grow: 9 }
+.col-10 { flex-grow: 10 }
+.col-11 { flex-grow: 11 }
+.col-12 { flex-grow: 12 }
+
+.fullwidth { width:100%; }
+
+div.talkie-comments ul li {
+    list-style-type:none;
+    display:flex;
+    flex-flow: row wrap;
+}
+
+div.talkie-comments ul {
+    padding-left:0;
+}
+pre {
+    padding-top:2px;
+    background-color: lighten($comments,50%);
+    padding-bottom:2px;
+}
+div.talkie-comments a {
+    text-decoration: none;
+    color: $color5;
+}
+div.talkie-comments ul li div {
+    background-color: lighten($comments,40%);
+    color:darken($comments,10%);
+    border:1px solid darken($comments,10%);
+    margin:2px;
+}
+
+div.talkie-comments ul li div.username {
+    flex:none;
+    width:100px;
+    padding:5px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+div.talkie-comments ul li div.comment {
+    padding:5px;
+    flex-grow:7;
+    flex-shrink:7;
+}
