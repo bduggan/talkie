@@ -14,6 +14,7 @@ import GitHubLogin from 'react-github-login';
 const onSuccess = response => login(response.code);
 const onFailure = response => console.error(response);
 const client_id = 'c3e6fecfb82ebadc1aa0'
+const redirect_uri = window.location.href.replace(/\/$/,'');
 
 var App = props => (
     <div>
@@ -29,7 +30,7 @@ var App = props => (
                 ) : (
                 <GitHubLogin
                     clientId={client_id}
-                    redirectUri="http://localhost:20000"
+                    redirectUri={redirect_uri}
                     scope=""
                     onSuccess={props.onLogin}
                     onFailure={onFailure}/>
