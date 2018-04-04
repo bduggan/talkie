@@ -4,7 +4,8 @@
  * http://www.colourlovers.com/palette/4556802/Beauty2
  */
 .flex-container {
-  display: flex; }
+  display: flex;
+  width: 100%; }
 
 .flex-container > div {
   margin: 10px;

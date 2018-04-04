@@ -18,7 +18,7 @@ const client_id = 'c3e6fecfb82ebadc1aa0'
 var App = props => (
     <div>
         <div className="header">
-            <a href='/' class='logo'>Talkie</a>
+            <a href='/' className='logo'>Talkie</a>
             <div className='login'>
                 { props.user ? (
                 <div className='user'>

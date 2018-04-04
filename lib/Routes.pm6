@@ -13,7 +13,6 @@ sub routes(Talkie $talkie) is export {
     route {
         post -> 'login' {
             request-body -> ( :$code ) {
-                my %panda = name => 'Bao Bao', eats => 'bamboo';
                 my $resp = await Cro::HTTP::Client.post:
                     'https://github.com/login/oauth/access_token',
                         headers => [
@@ -24,7 +23,6 @@ sub routes(Talkie $talkie) is export {
                             :$client_id, :$client_secret, :$code
                         };
                 my $json = await $resp.body;
-                # access_token, scope, token_type<bearer>
                 content 'application/json', $json
             }
         }
@@ -93,7 +91,7 @@ sub routes(Talkie $talkie) is export {
             ) {
                 $talk.add-comment(:$msg, :$user);
             }
-            content 'application/json', to-json { :status<ok> }
+            content 'application/json', %( :status<ok> )
         }
     }
 }
