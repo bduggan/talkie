@@ -11,11 +11,11 @@ export const ViewTalk = props => (
         <div className='mini-header'>
             { props.viewing_talk.location }, { props.viewing_talk.date }
         </div>
-        <row>
+        <div className='row'>
         <p>
         { props.viewing_talk.abstract }
         </p>
-        </row>
+        </div>
     </div>
     <div className="talkie-comments">
         <ul>
