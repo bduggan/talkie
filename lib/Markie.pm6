@@ -17,7 +17,7 @@ my class Node {
             return escape($.text);
         }
         if @.children {
-            return @.children.map({.render}).join('');
+            return @.children.map({.render}).join;
         }
         die "don't know how to render " ~ self.perl;
     }
