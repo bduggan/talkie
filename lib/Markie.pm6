@@ -7,9 +7,11 @@ my class Node {
     my sub escape($str) { $str.trans([ '<', '>', '&' ] => [ '&lt;', '&gt;', '&amp;' ], :g) }
     method render {
         if $.tag and $.text and not @.children {
-            my $attrs = join ' ', %.attrs.map: -> (:$key,:$value) { qq[$key="$value"] };
-            $attrs = $attrs ?? " $attrs" !! "";
-            return "<" ~ $.tag ~ "$attrs>" ~ escape($.text) ~ "</" ~ $.tag ~ ">";
+            return "<" ~ $.tag
+                  ~ ( join ' ', %.attrs.map: -> (:$key,:$value) { qq[ $key="$value"] } )
+                  ~ ">"
+                  ~ escape($.text)
+                  ~ "</" ~ $.tag ~ ">";
         }
         if $.text and not $.tag and not @.children {
             return escape($.text);
