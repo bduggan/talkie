@@ -25,6 +25,10 @@ function unique_by(attr,list) {
 export function talkieReducer(state=InitialState, action) {
     switch (action.type) {
         case ActionTypes.ADD_TALK:
+            if (action.error) {
+                console.log('error',action.error);
+                return { ...state, talk: action.talk, error: action.error };
+            }
             return { ...state, talk: InitialState.talk };
         case ActionTypes.EDIT_TALK:
             return { ...state, talk: action.talk };

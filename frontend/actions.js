@@ -32,11 +32,17 @@ export function editComment(comment,user) {
 
 export function addTalk() {
     return (dispatch, getState) => {
+        var talk = getState().talk;
+        for (var attr of ['title','speaker','abstract']) {
+            if (!talk[attr]) {
+                return dispatch( { type : ADD_TALK, talk: talk, error: "missing " + attr } )
+            }
+        }
         $.ajax({
             url : '/talks',
             type : 'POST',
             contentType : 'application/json',
-            data : JSON.stringify( getState().talk ),
+            data : JSON.stringify( talk ),
             success : () => dispatch( { type: ADD_TALK } )
         })
     }

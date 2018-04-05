@@ -11,6 +11,7 @@ var TextInput = ( { placeholder, name, obj, onChange, size } ) =>
 export const AddTalk = props => (
    <div className="talkie-wrapper">
        <h2>New talk</h2>
+       { props.error ?  <div className='error'>{props.error}</div> : "" }
        <div className='flex-container'>
        <TextInput name="title" size="8"
             obj={props.talk} onChange={props.onChangeTalk} />
