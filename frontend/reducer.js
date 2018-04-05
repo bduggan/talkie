@@ -14,6 +14,14 @@ const InitialState = {
     latestTalks  : []
 };
 
+function unique_by(attr,list) {
+    var seen = {}
+    return list.filter( ({ [attr] : id }) => {
+            seen[id] = seen[id] || 0
+            return ! seen[id]++
+    } )
+}
+
 export function talkieReducer(state=InitialState, action) {
     switch (action.type) {
         case ActionTypes.ADD_TALK:
@@ -23,7 +31,7 @@ export function talkieReducer(state=InitialState, action) {
         case ActionTypes.LATEST_TALK:
             console.log( [ action.talk, ...state.latestTalks ] );
             return { ...state,
-                latestTalks: [ action.talk, ...state.latestTalks ]
+                latestTalks: unique_by('id',[ action.talk, ...state.latestTalks ])
             }
         case ActionTypes.VIEW_TALK:
              return { ...state, comments : [], viewing_talk : action.talk }
@@ -31,8 +39,9 @@ export function talkieReducer(state=InitialState, action) {
             return { ...state, viewing_talk : null }
         case ActionTypes.LATEST_COMMENT:
             return { ...state,
-                      comments : [ action.comment,
-                                   ...state['comments']
+                      comments : [
+                                   ...state['comments'],
+                                   action.comment
                       ] }
         case ActionTypes.EDIT_COMMENT:
             return { ...state, comment: action.comment }

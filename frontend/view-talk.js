@@ -19,15 +19,6 @@ export const ViewTalk = props => (
     </div>
     <div className="talkie-comments">
         <ul>
-        <li><textarea
-            rows="3"
-            className="fullwidth"
-            placeholder="add a comment (press return twice to submit)"
-            value={props.comment}
-            onChange={e => props.onChangeComment(e.target.value, props.user)}
-            />
-        </li>
-
         { props.comments.map(
             t => <li key={'comment_' + t.id}>
                     <div className='username'>{t.user}</div>
@@ -35,6 +26,18 @@ export const ViewTalk = props => (
                 </li>
             )
         }
+        <li>
+        <div className='username'>comment</div>
+        <div className='comment'>
+        <textarea
+            rows="3"
+            className="fullwidth"
+            placeholder="(press return twice to submit)"
+            value={props.comment}
+            onChange={e => props.onChangeComment(e.target.value, props.user)}
+            />
+        </div>
+        </li>
         </ul>
     </div>
     </div>
