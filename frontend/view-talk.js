@@ -9,7 +9,9 @@ export const ViewTalk = props => (
             </center>
         </div>
         <div className='mini-header'>
-            { props.viewing_talk.location }, { props.viewing_talk.date }
+            { props.viewing_talk.location }
+            { props.viewing_talk.location ? <br /> : '' }
+            { props.viewing_talk.date }
         </div>
         <div className="row">
         <p>
