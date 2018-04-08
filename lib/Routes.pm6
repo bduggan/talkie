@@ -11,6 +11,10 @@ sub routes(Talkie $talkie) is export {
     my $client_secret = $talkie.conf<github><client_secret>;
 
     route {
+        after {
+            header 'Access-Control-Allow-Origin', '*';
+        }
+
         post -> 'login' {
             request-body -> ( :$code ) {
                 my $resp = await Cro::HTTP::Client.post:
