@@ -15,6 +15,11 @@ sub routes(Talkie $talkie) is export {
             header 'Access-Control-Allow-Origin', '*';
         }
 
+        $*CRO-ROUTE-SET.add-handler: 'OPTIONS', -> {
+            header 'Allow', <OPTIONS GET HEAD POST>.join(', ');
+            content 'text/plain', '';
+        }
+
         post -> 'login' {
             request-body -> ( :$code ) {
                 my $resp = await Cro::HTTP::Client.post:
