@@ -15,7 +15,7 @@ sub routes(Talkie $talkie) is export {
             header 'Access-Control-Allow-Origin', '*';
         }
 
-        $*CRO-ROUTE-SET.add-handler: 'OPTIONS', -> {
+        $*CRO-ROUTE-SET.add-handler: 'OPTIONS', -> *@any {
             header 'Allow', <OPTIONS GET HEAD POST>.join(', ');
             content 'text/plain', '';
         }
